@@ -1,0 +1,397 @@
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('../fonts/FugazOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que cubra toda la altura del viewport */
+}
+
+/* Estilos del encabezado */
+.index-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.index-header-title {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+}
+
+.index-header-title i {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.index-header-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: gray;
+    display: block;
+    margin-top: -12px;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+/* Estilos del cuerpo */
+.index-body {
+    font-family: 'Fugaz One', sans-serif;
+    color: #87807f;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+.index-sidebar {
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    background-color: rgb(40, 40, 40);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.index-sidebar h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.index-sidebar a {
+    font-family: "Oswald", serif;
+    font-size: 1.1rem;
+    font-weight: 480;
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 20px;
+    display: block;
+    transition: color 0.3s, background-color 0.3s, padding 0.3s;
+    line-height: 0.5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 12px 10px;
+    position: relative;
+    transition: padding-left 0.3s ease;
+
+    /* Control de desbordamiento */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.index-sidebar a:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(20, 90, 180, 0.7);
+    background: linear-gradient(90deg, rgba(15, 60, 120, 0.9), rgba(25, 100, 190, 0.9), rgba(35, 120, 220, 0.9));
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 10px 10px 10px 15px;
+    position: relative;
+    padding-left: 35px;
+}
+
+.index-sidebar a:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: rgba(30, 144, 255, 0.8);
+    border-radius: 0 5px 5px 0;
+}
+
+.index-sidebar a:hover::after {
+    content: '\f072';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ffffff;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+}
+
+.index-sidebar .footer {
+    color: #9a9898;
+    font-size: 0.9rem;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: auto;
+    padding: 15px 0;
+}
+
+.index-sidebar .footer p {
+    margin-top: 10px;
+}
+
+.index-content {
+    margin-left: 280px;
+    padding: 50px;
+    min-height: 100vh;
+    position: relative;
+    background: url('../images/fondo.jpg') repeat;
+    background-size: contain;
+}
+
+.index-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Asegúrate de que no bloquee la imagen de fondo */
+    
+}
+
+.index-content h1 {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.index-content p {
+    color: #ddd;
+    font-size: 1.2rem;
+}
+
+.index-content h1,
+.index-content p {
+    position: relative;
+    z-index: 2;
+}
+
+/********************************CSS DEL FORMULARIO*************************************/
+
+.index-content h1,
+.index-content p,
+.form-container {
+    position: relative;
+    z-index: 9999;/* Un valor alto para que esté delante de todo */
+}
+/* Estilo general */
+.form-container {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    background: rgba(255, 255, 255, 0.5); /* Fondo blanco semitransparente */
+    max-width: 600px;
+    margin: 20px auto; /* Centrado horizontal */
+    padding: 20px;
+    border-radius: 20px; /* Opcional, para bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Asegura que el z-index funcione */
+}
+
+.form-container h1 {
+    font-family: 'Fugaz One', sans-serif;
+    text-align: center;
+    color: #003366;
+    font-weight: 200;
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+}
+
+/* Estilo para grupos de formulario */
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Estilo general para inputs, select y textarea */
+.form-container input[type="text"],
+.form-container input[type="datetime-local"],
+.form-container input[type="time"],
+.form-container select,
+.form-container textarea {
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-bottom: 5px; /* Espaciado */
+}
+
+
+/* Botones generales */
+.form-container button {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #005599;
+}
+
+.form-container button:active {
+    transform: scale(0.98);
+}
+
+/* Botón "Eliminar" */
+.form-container .btn-eliminar {
+    background-color: #e74c3c;
+    padding: 10px;
+}
+
+.form-container .btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Botón "Agregar nueva descripción" */
+.form-container .btn-agregar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaciado entre icono y texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container .btn-agregar:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+}
+
+.form-container .btn-agregar:active {
+    transform: translateY(1px);
+}
+
+/* Botón "Enviar Parte" */
+.form-container .btn-enviar {
+    display: flex;
+    margin: 0 auto; /* Centrado horizontal */
+    align-items: center;
+    justify-content: center;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 10px; /* Espaciado entre icono y texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container .btn-enviar:hover {
+    background-color: #005599;
+    transform: translateY(-2px);
+}
+
+.form-container .btn-enviar:active {
+    transform: translateY(1px);
+}
+
+/* Estilo de las tarjetas (descripciones del servicio) */
+.form-container .descripcion-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #dedede;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-container .descripcion-item textarea {
+    height: 85px;
+    resize: none;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo de la sección de horario */
+.form-container .horario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container .horario-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container .horario-item label {
+    font-size: 14px;
+    color: #666;
+    min-width: 50px;
+    margin: 0;
+}
+
+.form-container .horario-item input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+}
+
+/* Observaciones opcionales */
+.form-container textarea {
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo de los textos secundarios (checkbox y radio) */
+.form-container input[type="checkbox"] + label,
+.form-container input[type="radio"] + label {
+    font-weight: normal;
+    color: #000000a8;
+    margin-left: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Aseguramos que el resto de los label permanezcan en bold */
+.form-container label:not(.label-checkbox):not(.label-radio) {
+    font-weight: bold;
+    color: #000000b8;
+}
+
