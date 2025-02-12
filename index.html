@@ -3,213 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Parte de Servicio</title>
-    <!-- Enlace al CSS donde las fuentes locales ya están definidas -->
-    <link rel="stylesheet" href="css/index-estilos.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="css/login-estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
 </head>
 <body>
-    <div class="index-sidebar">
-        <div class="index-header">
-            <h1 class="index-header-title">
-                <i class="fa fa-plane"></i> FORMULARIOS 
-                <span class="index-header-subtitle">DE PARTES</span>
-            </h1>
-        </div>
-                  
-            <div>
-                <a href="#">Inicio</a>
-                <a href="parte-servicio.html">Parte de Servicios</a>
-                <a href="parte-patrullas.html">Parte de Patrullas</a>
-                <a href="parte-equipos.html">Parte de Equipos</a>
-                <a href="inspeccion-vehiculos.html">Inspección de Vehículos</a>
-                <a href="inspeccion-suministros.html">Inspección de Suministros</a>
-                <a href="#">Contáctanos</a>
-                <a href="#">Salir</a>
+    <div class="main-container">
+        <div class="form-box">
+            <!-- Sección Izquierda (Logo y Botones) -->
+            <div class="left-section">
+                <div class="logo-container">
+                    <img src="images/aena.png" alt="Logo">
+                </div>
+                <div class="button-container">
+                    <button class="toggle-btn" onclick="mostrarLogin()">
+                        <i class="fa-solid fa-sign-in-alt"></i> LOGIN
+                    </button>
+                    <button class="toggle-btn" onclick="mostrarRegistro()">
+                        <i class="fa-solid fa-user-plus"></i> REGISTER
+                    </button> 
+                </div>
             </div>
-        <div class="footer">
-            <p>&copy; 2025 Formularios de partes. Todos los derechos Reservados.</p>
-            <p>Phone: +34 959 552 597</p>
-        </div>
-    </div>
-    
-    <div class="index-content">
-        <div class="form-container">
-            <h1>Formulario de Parte de Servicio</h1>
-            <form id="formulario">
-                <!-- Campo Aeropuerto -->
-                <div class="form-group">
-                    <label for="aeropuerto">Aeropuerto:</label>
-                    <select id="aeropuerto" name="aeropuerto" required>
-                        <option value="" disabled selected>Seleccione un aeropuerto</option>
-                        <option value="MAD - Madrid-Barajas">MAD - Madrid-Barajas</option>
-                        <option value="BCN - Barcelona-El Prat">BCN - Barcelona-El Prat</option>
-                        <option value="PMI - Palma de Mallorca">PMI - Palma de Mallorca</option>
-                        <option value="AGP - Málaga-Costa del Sol">AGP - Málaga-Costa del Sol</option>
-                        <option value="ALC - Alicante-Elche">ALC - Alicante-Elche</option>
-                        <option value="LPA - Gran Canaria">LPA - Gran Canaria</option>
-                        <option value="TFS - Tenerife Sur">TFS - Tenerife Sur</option>
-                        <option value="IBZ - Ibiza">IBZ - Ibiza</option>
-                        <option value="ACE - Lanzarote">ACE - Lanzarote</option>
-                        <option value="VLC - Valencia">VLC - Valencia</option>
-                        <option value="FUE - Fuerteventura">FUE - Fuerteventura</option>
-                        <option value="SVQ - Sevilla">SVQ - Sevilla</option>
-                        <option value="BIO - Bilbao">BIO - Bilbao</option>
-                        <option value="TFN - Tenerife Norte">TFN - Tenerife Norte</option>
-                        <option value="MAH - Menorca">MAH - Menorca</option>
-                        <option value="SCQ - Santiago de Compostela">SCQ - Santiago de Compostela</option>
-                        <option value="GRO - Girona-Costa Brava">GRO - Girona-Costa Brava</option>
-                        <option value="SPC - La Palma">SPC - La Palma</option>
-                        <option value="OVD - Asturias">OVD - Asturias</option>
-                        <option value="LCG - A Coruña">LCG - A Coruña</option>
-                        <option value="LEI - Almería">LEI - Almería</option>
-                        <option value="VGO - Vigo">VGO - Vigo</option>
-                        <option value="XRY - Jerez de la Frontera">XRY - Jerez de la Frontera</option>
-                        <option value="REU - Reus">REU - Reus</option>
-                        <option value="SDR - Santander">SDR - Santander</option>
-                        <option value="MLN - Melilla">MLN - Melilla</option>
-                        <option value="EAS - San Sebastián">EAS - San Sebastián</option>
-                        <option value="VLL - Valladolid">VLL - Valladolid</option>
-                        <option value="VDE - El Hierro">VDE - El Hierro</option>
-                        <option value="PNA - Pamplona">PNA - Pamplona</option>
-                        <option value="GMZ - La Gomera">GMZ - La Gomera</option>
-                        <option value="VIT - Vitoria">VIT - Vitoria</option>
-                        <option value="LEJ - León">LEJ - León</option>
-                        <option value="BJZ - Badajoz">BJZ - Badajoz</option>
-                        <option value="RJL - Logroño-Agoncillo">RJL - Logroño-Agoncillo</option>
-                        <option value="SLM - Salamanca">SLM - Salamanca</option>
-                        <option value="ODB - Córdoba">ODB - Córdoba</option>
-                        <option value="RGS - Burgos">RGS - Burgos</option>
-                        <option value="ABC - Albacete">ABC - Albacete</option>
-                        <option value="AEI - Algeciras">AEI - Algeciras</option>
-                        <option value="HSK - Huesca-Pirineos">HSK - Huesca-Pirineos</option>
-                    </select>
+
+            <!-- Sección Derecha (Formularios) -->
+            <div class="right-section">
+                <!-- Formulario de Login -->
+                <form id="login-form" action="parte-servicio.html">
+                    <h2>Login</h2>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Nombre Vigilante" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-badge"></i>
+                        <input type="text" placeholder="TIP" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </button>
+                </form>
+
+                <!-- Formulario de Registro -->
+                <form id="register-form" class="hidden">
+                    <h2>Register</h2>
                     
-                </div>
-    
-                <!-- Campo Fecha y Hora -->
-                <div class="form-group">
-                    <label for="fecha">Fecha de registro:</label>
-                    <input type="datetime-local" id="fecha" name="fecha" required>
-                </div>
-    
-    
-                <!-- Campo Horario del turno -->
-                <div class="form-group">
-                    <label for="horario">Horario del turno:</label>
-                    <div style="display: flex; gap: 10px;">
-                        <input type="time" id="horaInicio" name="horaInicio" required>
-                        <span>-</span>
-                        <input type="time" id="horaFin" name="horaFin" required>
+                    <div class="input-group">
+                        <i class="fa-solid fa-plane"></i>
+                        <select required>
+                            <option value="" disabled selected>Seleccione un Aeropuerto</option>
+                            <option value="MAD - Madrid-Barajas">MAD - Madrid-Barajas</option>
+                            <option value="BCN - Barcelona-El Prat">BCN - Barcelona-El Prat</option>
+                            <option value="PMI - Palma de Mallorca">PMI - Palma de Mallorca</option>
+                            <option value="AGP - Málaga-Costa del Sol">AGP - Málaga-Costa del Sol</option>
+                            <option value="ALC - Alicante-Elche">ALC - Alicante-Elche</option>
+                            <option value="LPA - Gran Canaria">LPA - Gran Canaria</option>
+                            <option value="TFS - Tenerife Sur">TFS - Tenerife Sur</option>
+                            <option value="IBZ - Ibiza">IBZ - Ibiza</option>
+                            <option value="ACE - Lanzarote">ACE - Lanzarote</option>
+                            <option value="VLC - Valencia">VLC - Valencia</option>
+                            <option value="FUE - Fuerteventura">FUE - Fuerteventura</option>
+                            <option value="SVQ - Sevilla">SVQ - Sevilla</option>
+                            <option value="BIO - Bilbao">BIO - Bilbao</option>
+                            <option value="TFN - Tenerife Norte">TFN - Tenerife Norte</option>
+                            <option value="MAH - Menorca">MAH - Menorca</option>
+                            <option value="SCQ - Santiago de Compostela">SCQ - Santiago de Compostela</option>
+                            <option value="GRO - Girona-Costa Brava">GRO - Girona-Costa Brava</option>
+                            <option value="SPC - La Palma">SPC - La Palma</option>
+                            <option value="OVD - Asturias">OVD - Asturias</option>
+                            <option value="LCG - A Coruña">LCG - A Coruña</option>
+                            <option value="LEI - Almería">LEI - Almería</option>
+                            <option value="VGO - Vigo">VGO - Vigo</option>
+                            <option value="XRY - Jerez de la Frontera">XRY - Jerez de la Frontera</option>
+                            <option value="REU - Reus">REU - Reus</option>
+                            <option value="SDR - Santander">SDR - Santander</option>
+                            <option value="MLN - Melilla">MLN - Melilla</option>
+                            <option value="EAS - San Sebastián">EAS - San Sebastián</option>
+                            <option value="VLL - Valladolid">VLL - Valladolid</option>
+                            <option value="VDE - El Hierro">VDE - El Hierro</option>
+                            <option value="PNA - Pamplona">PNA - Pamplona</option>
+                            <option value="GMZ - La Gomera">GMZ - La Gomera</option>
+                            <option value="VIT - Vitoria">VIT - Vitoria</option>
+                            <option value="LEJ - León">LEJ - León</option>
+                            <option value="BJZ - Badajoz">BJZ - Badajoz</option>
+                            <option value="RJL - Logroño-Agoncillo">RJL - Logroño-Agoncillo</option>
+                            <option value="SLM - Salamanca">SLM - Salamanca</option>
+                            <option value="ODB - Córdoba">ODB - Córdoba</option>
+                            <option value="RGS - Burgos">RGS - Burgos</option>
+                            <option value="ABC - Albacete">ABC - Albacete</option>
+                            <option value="AEI - Algeciras">AEI - Algeciras</option>
+                            <option value="HSK - Huesca-Pirineos">HSK - Huesca-Pirineos</option>
+                        </select>
                     </div>
-                </div>
-    
-                <!-- Campo Nombre del Vigilante -->
-                <div class="form-group">
-                    <label for="nombre">Nombre Vigilante:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del Vigilante" required>
-                </div>
-    
-                <!-- Campo TIP -->
-                <div class="form-group">
-                    <label for="tip">TIP (Número de Placa):</label>
-                    <input type="text" id="tip" name="tip" placeholder="Número de Placa" required>
-                </div>
-    
-                <!-- Material Controlado -->
-                <div class="form-group">
-                    <label>Material Controlado:</label>
-                    <div>
-                        <input type="checkbox" id="arma" name="material" value="arma">
-                        <label for="arma" class="label-checkbox">Arma</label>
-    
-                        <input type="checkbox" id="linterna" name="material" value="linterna">
-                        <label for="linterna" class="label-checkbox">Linterna</label>
-    
-                        <input type="checkbox" id="llaves" name="material" value="llaves">
-                        <label for="llaves" class="label-checkbox">Llaves</label>
-    
-                        <input type="checkbox" id="walkies" name="material" value="walkies">
-                        <label for="walkies" class="label-checkbox">Walkies</label>
-    
-                        <input type="checkbox" id="vehiculo" name="material" value="vehiculo">
-                        <label for="vehiculo" class="label-checkbox">Vehículo</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Nombre Vigilante" required>
                     </div>
-                </div>
-    
-                <!-- Leído Normativa -->
-                <div class="form-group">
-                    <label>Leído Normativa:</label>
-                    <div>
-                        <input type="radio" id="normativa-si" name="normativa" value="si">
-                        <label for="normativa-si" class="label-radio">Sí</label>
-    
-                        <input type="radio" id="normativa-no" name="normativa" value="no">
-                        <label for="normativa-no" class="label-radio">No</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-badge"></i>
+                        <input type="text" placeholder="TIP" required>
                     </div>
-                </div>
-    
-                <!-- Campo Accidentes del Puesto -->
-                <div class="form-group">
-                    <label>Accidentes del Puesto:</label>
-                    <div>
-                        <input type="radio" id="accidente-si" name="accidentes" value="Si" required>
-                        <label for="accidente-si" class="label-radio">Sí</label>
-    
-                        <input type="radio" id="accidente-no" name="accidentes" value="No">
-                        <label for="accidente-no" class="label-radio">No</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <input type="text" placeholder="Número de acreditación" required>
                     </div>
-                </div>
-    
-                <!-- Campo Descripción del Servicio -->
-                <div class="form-group">
-                    <label for="descripcion-container">Descripciones del Servicio:</label>
-                    <div id="descripcion-container">
-                        <div class="descripcion-item">
-                            <div class="horario">
-                                <div class="horario-item">
-                                    <label for="hora-inicio">H. Ini</label>
-                                    <input type="time" id="hora-inicio" name="hora-inicio">
-                                </div>
-                                                              
-                                <div class="horario-item">
-                                    <label for="hora-fin">H. Fin</label>
-                                    <input type="time" id="hora-fin" name="hora-fin">
-                                    
-                                </div>
-                            </div>
-                            
-                            <textarea id="descripcion-servicio" name="descripcion-servicio" placeholder="Describe el servicio realizado"></textarea>
-                            <button type="button" class="btn-eliminar" onclick="eliminarDescripcion(this)">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-palette"></i>
+                        <input type="text" placeholder="Color de acreditación" required>
                     </div>
-                    <button type="button" class="btn-agregar" onclick="agregarDescripcion()">
-                        <i class="fas fa-plus-circle"></i> Agregar nueva descripción
-                    </button>                
-                </div>
-              
-                               
-                <!-- Campo Observaciones -->
-                <div class="form-group">
-                    <label for="observaciones">Observaciones (opcional):</label>
-                    <textarea id="observaciones" name="observaciones" rows="5" placeholder="Anote cualquier observación relevante"></textarea>
-                </div>
-    
-                <button type="submit" class="btn-enviar">
-                    <i class="fas fa-paper-plane"></i> Enviar Parte
-                </button>
-                
-            </form>
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-user-check"></i> Sign Up
+                    </button>
+                </form>
+            </div>
         </div>
-      
     </div>
-    <script src="js/config-fecha-hora.js"></script>
-    <script src="js/parte-servicio-descripcion.js"></script>
 
+    <script>
+        function mostrarRegistro() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.remove('hidden');
+        }
+
+        function mostrarLogin() {
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById('login-form').classList.remove('hidden');
+        }
+    </script>
 </body>
-
-
 </html>
