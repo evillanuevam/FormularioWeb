@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('../fonts/FugazOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+}
 /*********************ESTILOS GENERALES PARA LA PAGINA*****************/
 #plantilla-aena {
     margin: 0;
@@ -276,7 +285,6 @@
 
 }
 
-
 /* Bloque de enlaces y copyright */
 .footer-links-copyright {
     display: flex;
@@ -321,7 +329,6 @@
     font-family: Arial, sans-serif; /* Mantén tu fuente original */
     transition: color 0.3s ease;
 }
-
 
 .footer-links nav ul li a:hover {
     color: #a0d911; /* Cambia el color al pasar el cursor */
@@ -400,18 +407,7 @@
     outline: none;
 }
 
-
 /************************************* ESRILOS DE LA BARRA LATERAL *************************************/
-
-@font-face {
-    font-family: 'Fugaz One';
-    src: url('../fonts/FugazOne-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Oswald';
-    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
-}
 
 /* Estilos específicos para main-content */
 .main-content {
@@ -446,7 +442,7 @@
 .index-header-subtitle {
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
-    color: gray;
+    color: #8c8c8c;
     display: block;
     margin-top: -12px;
     text-transform: uppercase;
@@ -505,7 +501,7 @@
     font-weight: 480;
     color: #fff;
     text-decoration: none;
-    margin: 15px 20px;
+    margin: 15px 0px; /*ancho de los textos*/
     display: block;
     transition: color 0.3s, background-color 0.3s, padding 0.3s;
     line-height: 0.5;
@@ -516,11 +512,11 @@
     position: relative;
     transition: padding-left 0.3s ease;
     /*box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);*/
-
     /* Control de desbordamiento */
     white-space: nowrap;
-    overflow: hidden;
+    /*overflow: hidden;/*ocutlar textos grandes*/
     text-overflow: ellipsis;
+    box-sizing: border-box; /* Evita cambios de tamaño inesperados */
 }
 
 .index-sidebar a:hover {
@@ -529,10 +525,14 @@
     background: linear-gradient(90deg, rgba(160, 217, 17, 0.9), rgba(140, 190, 15, 0.9), rgba(120, 160, 10, 0.9)); /* Gradiente basado en #a0d911 */
     color: #ffffff;
     border-radius: 8px;
-    padding: 10px 10px 10px 15px;
+    padding: 12px 10px; /* Se mantiene igual al estado normal */
     position: relative;
     padding-left: 35px;
     transition: all 0.1s ease-in-out;
+    /*momentaneo*/
+    overflow: visible;
+    width: auto; /* Permite que se expanda el texto */
+    /*min-width: 70%;/*modificar el hover*/
 }
 
 .index-sidebar a:hover::before {
@@ -557,6 +557,8 @@
     transform: translateY(-50%);
     font-size: 1rem;
 }
+
+
 
 .index-sidebar .footer {
     color: #9a9898;

@@ -1,0 +1,364 @@
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('../fonts/FugazOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+
+}
+/**************************** ESTILOS DE FORMULARIO ***************************/
+.index-content h1,
+.index-content p,
+.form-container {
+    position: relative;
+    /*z-index: 9999;/* Un valor alto para que esté delante de todo */
+}
+/* Estilo general */
+.form-container {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    background: #e9ecef; /* Fondo color de aena/
+    max-width: 600px;
+    width: 90%; /* Responsivo */
+    margin: 90px auto; /* Centrado automático */
+    padding: 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    position: relative; /* Para z-index */
+    transition: transform 0.3s ease; /* Suaviza el movimiento */
+    margin-bottom: auto;
+}
+
+.form-container h1 {
+    font-family: 'Fugaz One', sans-serif;
+    text-align: center;
+    color: #003366;
+    font-weight: 200;
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+}
+
+/* Estilo para grupos de formulario */
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Estilo general para inputs, select y textarea */
+.form-container input[type="text"],
+.form-container input[type="datetime-local"],
+.form-container input[type="date"],
+.form-container input[type="time"],
+.form-container input[type="number"],
+.form-container select,
+.form-container textarea {
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-bottom: 5px; /* Espaciado */
+    border: none; /* Elimina el borde predeterminado */
+    border-bottom: 2px solid #90ce00; /* Línea verde siempre visible */
+    outline: none; /* Quita el borde de selección */  
+    transition: all 0.3s ease-in-out; /* Suaviza la animación */ 
+}
+
+/* Animacion al hacer click en los cuadrod de texto */
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    border-bottom: 3px solid #90ce00; /* Hace la línea más gruesa */
+    box-shadow: 0px 0px 10px rgba(140, 198, 63, 0.8); /* Resplandor verde */
+    transform: scale(1.01); /* Hace el campo un poco más grande */
+}
+
+/* Botones generales */
+.form-container button {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #005599;
+}
+
+.form-container button:active {
+    transform: scale(0.98);
+}
+
+/* Botón "Eliminar" */
+.form-container .btn-eliminar {
+    background-color: #e74c3c;
+    padding: 10px;
+}
+
+.form-container .btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Botón "Agregar nueva descripción" */
+.form-container .btn-agregar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaciado entre icono y texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container .btn-agregar:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+}
+
+.form-container .btn-agregar:active {
+    transform: translateY(1px);
+}
+
+/* Botón "Enviar Parte" */
+.form-container .btn-enviar {
+    display: flex;
+    margin: 0 auto; /* Centrado horizontal */
+    align-items: center;
+    justify-content: center;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 10px; /* Espaciado entre icono y texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container .btn-enviar:hover {
+    background-color: #005599;
+    transform: translateY(-2px);
+}
+
+.form-container .btn-enviar:active {
+    transform: translateY(1px);
+}
+
+/* Estilo de las tarjetas (descripciones del servicio) */
+.form-container .descripcion-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #dedede;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-container .descripcion-item textarea {
+    height: 85px;
+    resize: none;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo de la sección de horario */
+.form-container .horario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container .horario-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container .horario-item label {
+    font-size: 14px;
+    color: #666;
+    min-width:40px;
+    margin: 0;
+}
+
+.form-container .horario-item input {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 100px;
+}
+
+/* Observaciones opcionales */
+.form-container textarea {
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo de los textos secundarios (checkbox y radio) */
+.form-container input[type="checkbox"] + label,
+.form-container input[type="radio"] + label {
+    font-weight: normal;
+    color: #000000a8;
+    margin-left: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Aseguramos que el resto de los label permanezcan en bold */
+.form-container label:not(.label-checkbox):not(.label-radio) {
+    font-weight: bold;
+    color: #000000b8;
+}
+
+/**************** CSS ADICIONAL PARA EL FORMUALARIO, para las tablas, listas y demas ******/
+
+/* Eliminar negrita de los encabezados desde "Día" en adelante */
+th {
+    font-weight: normal; /* Hace que el texto no sea en negrita */
+    padding: 10px 5px; /* Ajusta el espaciado interno */
+    text-align: center; /* Centrar el texto en los encabezados */
+    vertical-align: middle; /* Asegura que el texto esté alineado */
+    font-size: 14px; /* Tamaño de fuente más estético */
+}
+
+/* Ajustar listas en encabezados */
+th ul {
+    list-style: none; /* Elimina los puntos de las listas */
+    padding-left: 0; /* Elimina el margen a la izquierda */
+    margin: 3px 0; /* Espaciado adecuado */
+    text-align: left; /* Alinea los textos a la izquierda */
+    font-size: 14px; /* Tamaño de fuente más estético */
+}
+
+/* Ajuste de listas ordenadas (enumeradas) */
+th ol {
+    padding-left: 15px; /* Da margen para los números */
+    margin: 5px 0; /* Ajusta el espacio */
+    list-style-position: inside; /* Hace que los números queden alineados con el texto */
+    padding-left: 0; /* Elimina espacio extra a la izquierda */
+    margin: 0; /* Elimina espacios exteriores */
+    text-align: left; /* Asegura alineación con el resto del contenido */
+    font-size: 14px; /* Tamaño de fuente más estético */
+}
+
+/* Ajustar tamaño de los checkbox para que no se vean muy grandes */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+/* Espaciado entre filas */
+td, th {
+    padding: 8px;
+    border: 2px solid #ddd; /*BORDE DE LA TABLA*/
+}
+
+/* Ajustar los elementos dentro de la lista */
+th ol li {
+    margin: 2px 0; /* Espaciado entre elementos */
+    line-height: 1.4; /* Espaciado entre líneas */
+}
+
+table {
+    border-collapse: collapse; /* Une los bordes para que no haya doble línea */
+}
+
+/* Centrar los checkboxes en la tabla */
+td input[type="checkbox"] {
+    display: block;
+    margin: auto;
+}
+
+/*************CSS SOLO APRA LA PARTE DE INSERTAR IMAGENES EN LOS SUMINISTROS****************/
+/* Contenedor principal para los campos y las imágenes */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinear verticalmente */
+    gap: 20px; /* Espacio entre campos e imágenes */
+    margin-bottom: 10px; /* Espacio antes de la tabla */
+}
+
+/* Contenedor de los campos (AEROPUERTO Y CONTROL DE SEG. */
+.form-fields {
+    flex: 1; /* Hace que los inputs ocupen el espacio disponible */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    gap: 10px;
+}
+
+
+/* Contenedor en fila */
+.form-images {
+    display: flex;
+    flex-direction: row;
+    gap: 0px; /* Espacio entre imágenes */
+    align-items: center;
+}
+
+/* Imagen 1 (N° de cajas) - Más pequeña */
+.img-cajas {
+    width: 350px;
+    height: auto;
+}
+
+/* Imagen 2 (Zonas de inspección) - Más grande */
+.img-zonas {
+    width: 610px;
+    height: auto;
+}
+
+/* Alinear "Sí" y "No" en el encabezado */
+.inspeccion-header {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/*tamaño de las dos ultimas columnas*/
+th.combin-aleatoria, 
+td.combin-aleatoria,
+th.insp-100-acomp, 
+td.insp-100-acomp {
+    width: 60px; /* Ajusta este valor según necesites */
+    max-width: 150px;
+    text-align: center;
+}
+
+/* Ajustar el tamaño del input dentro de las celdas */
+td.combin-aleatoria input, 
+td.insp-100-acomp input {
+    width: 90%; /* Para que no desborde la celda */
+    font-size: 14px; /* Ajustar tamaño de letra si es necesario */
+}

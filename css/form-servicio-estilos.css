@@ -1,0 +1,14 @@
+/* Agrupar los campos en dos columnas */
+.form-container {
+    max-width: 850px; /* Mantiene el tamaño adecuado */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.form-container .horario-item input {
+    width: 100%;
+
+}
+
