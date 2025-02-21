@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
     <link rel="stylesheet" href="css/login-estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="icon" href="images/favico.svg" type="image/x-icon">  
 </head>
 <body>
     <div class="main-container">
@@ -82,6 +83,10 @@
                         <i class="fa-solid fa-id-badge"></i>
                         <input type="text" placeholder="TIP" required>
                     </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <input type="text" id="rol-login" placeholder="Vigilante" readonly>
+                    </div>
                     <button type="submit" class="submit-btn">
                         <i class="fa-solid fa-right-to-bracket"></i> Login
                     </button>
@@ -140,25 +145,24 @@
                     </div>
                     <div class="input-group">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Nombre Vigilante" required>
+                        <input type="text" placeholder="Nombre" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Apellido 1" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Apellido 2" required>
                     </div>
                     <div class="input-group">
                         <i class="fa-solid fa-id-badge"></i>
                         <input type="text" placeholder="TIP" required>
                     </div>
                     <div class="input-group">
-                        <i class="fa-solid fa-hashtag"></i>
-                        <input type="text" placeholder="Número de acreditación" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fa-solid fa-palette"></i>
-                        <select required>
-                            <option value="" disabled selected>Color de acreditación</option>
-                            <option value="Amarilla">Amarilla</option>
-                            <option value="Azul">Azul</option>
-                            <option value="Blanca">Blanca</option>
-                            <option value="Roja">Roja</option>
-                            <option value="Verde">Verde</option>
+                        <i class="fa-solid fa-user-shield"></i>
+                        <select id="rol" required>
+                            <option value="vigilante">Vigilante</option>
                         </select>
                     </div>
                     

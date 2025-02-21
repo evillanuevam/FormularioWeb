@@ -46,31 +46,131 @@
 
     <!-- Contenido principal -->
     <main class="main-content" >
-        <!-- barra lateral -->
+        <!-- Barra lateral -->
         <div class="index-sidebar">
             <div class="index-header">
                 <h1 class="index-header-title">
-                    <img src="images/airplane_animation.gif" alt="Logo AENA" class="header-logo"></img> FORMULARIOS 
-                    
+                    <img src="images/airplane_animation.gif" alt="Logo AENA" class="header-logo"> FORMULARIOS 
                     <span class="index-header-subtitle">DE PARTES</span>
                 </h1>
-            </div>
-                      
-            <div>
-                <a href="#">Inicio</a>
+            </div>   
+            <div class="menu">
+                <a href="administrar.html">Administrar</a>
                 <a href="parte-servicio.html">Parte de Servicios</a>
-                <a href="parte-patrullas.html">Parte de Patrullas</a>
+
+                <!-- Menú desplegable -->
+                <div class="submenu">
+                    <a href="parte-patrullas.html" class="submenu-toggle">Parte de Patrullas ▾</a>
+                    <div class="submenu-content">
+                        <a href="perimetro.html">Perímetro</a>
+                        <a href="otras-zonas.html">Otras Zonas</a>
+                        <a href="acreditaciones.html">Acreditaciones</a>
+                        <a href="control-indigentes.html">Control de Indigentes</a>
+                        <a href="alarmas-puertas.html">Alarmas y Puertas</a>
+                    </div>
+                </div>
+
                 <a href="parte-equipos.html">Parte de Equipos</a>
                 <a href="inspeccion-vehiculos.html">Inspección de Vehículos</a>
                 <a href="inspeccion-suministros.html">Inspección de Suministros</a>
                 <a href="#">Contáctanos</a>
                 <a href="index.html">Salir</a>
             </div>
-
         </div>
-        <!-- formulario -->
-        <div class="index-content">
 
+        <!-- formulario PATRULLAS-->
+        <div class="index-content">
+            <div class="form-container">
+                <h1>Formulario de Patrullas</h1>
+                <form id="formulario-patrullas">
+                    
+                    <!-- Datos Generales -->
+                    <div class="form-group">
+                        <label for="fecha">Fecha de registro:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="turno">Turno:</label>
+                        <select id="turno" name="turno" required>
+                            <option value="Mañana">Mañana (06:00 - 14:00)</option>
+                            <option value="Tarde">Tarde (14:00 - 22:00)</option>
+                            <option value="Noche">Noche (22:00 - 06:00)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vigilante">Nombre del Vigilante:</label>
+                        <input type="text" id="vigilante" name="vigilante" required>
+                    </div>
+                    
+                    <!-- Patrullas Perímetro -->
+                    <div class="form-group">
+                        <h2>Patrullas Perímetro</h2>
+                        <label for="zona-perimetro">Zona de Fichaje:</label>
+                        <input type="text" id="zona-perimetro" name="zona-perimetro" required>
+                        
+                        <label for="hora-inicio-perimetro">Hora Inicio:</label>
+                        <input type="time" id="hora-inicio-perimetro" name="hora-inicio-perimetro" required>
+                        
+                        <label for="hora-fin-perimetro">Hora Fin:</label>
+                        <input type="time" id="hora-fin-perimetro" name="hora-fin-perimetro" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <h2>Estado del Vallado</h2>
+                        <label>Estado:</label>
+                        <select id="estado-vallado" name="estado-vallado">
+                            <option value="Correcto">Correcto</option>
+                            <option value="Deteriorado">Deteriorado</option>
+                            <option value="Agujereado">Agujereado</option>
+                            <option value="No anclado">No anclado</option>
+                            <option value="Objeto junto al vallado">Objeto junto al vallado</option>
+                            <option value="Vegetación abundante">Vegetación abundante</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                        <textarea id="observaciones-vallado" name="observaciones-vallado" placeholder="Observaciones adicionales"></textarea>
+                    </div>
+                    
+                    <!-- Comprobación de Acreditaciones -->
+                    <div class="form-group">
+                        <h2>Comprobación de Acreditaciones</h2>
+                        <label for="numero-acreditacion">Número de Acreditación:</label>
+                        <input type="text" id="numero-acreditacion" name="numero-acreditacion">
+                        
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" id="empresa" name="empresa">
+                        
+                        <label for="validacion">¿Es válida?</label>
+                        <select id="validacion" name="validacion">
+                            <option value="Si">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Control de Indigentes -->
+                    <div class="form-group">
+                        <h2>Control de Indigentes</h2>
+                        <label for="descripcion-indigentes">Descripción:</label>
+                        <textarea id="descripcion-indigentes" name="descripcion-indigentes" placeholder="Describe la situación"></textarea>
+                    </div>
+                    
+                    <!-- Comprobación de Alarmas -->
+                    <div class="form-group">
+                        <h2>Comprobación de Alarmas y Puertas de Emergencia</h2>
+                        <label for="alarma-verificacion">¿Funcionan correctamente?</label>
+                        <select id="alarma-verificacion" name="alarma-verificacion">
+                            <option value="Si">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                        <textarea id="observaciones-alarmas" name="observaciones-alarmas" placeholder="Observaciones"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">
+                        <i class="fas fa-paper-plane"></i> Enviar Parte
+                    </button>  
+                </form>
+            </div>
         </div>
     </main>
 

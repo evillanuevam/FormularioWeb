@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inspeccion de Suministros</title>
+    <title>Administrar</title>
     <link rel="stylesheet" href="css/plantilla-estilos.css">
     <link rel="stylesheet" href="css/global-formularios-estilos.css">
-    
+    <link rel="stylesheet" href="css/form-administrar-estilos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favico.svg" type="image/x-icon">
+
 </head>
 <body id="plantilla-aena">
     <!-- Encabezado -->
@@ -29,7 +30,7 @@
                 </div>
             </div>
             <div class="language-dropdown">
-                <button class="language-button">
+                <button class="language-button" onclick="toggleLanguages()">
                     <i class="fa fa-comment"></i> ES <i class="fa fa-chevron-down"></i>
                 </button>
                 <div class="language-bar hidden" id="languageBar">
@@ -79,17 +80,22 @@
         </div>
         <!-- formulario -->
         <div class="index-content">
-            <div class="form-container">
-                <h1 id="titulo-formulario">Tabla de Inspección de Suministros/Provisiones No Conocidos</h1>
+
+            <div class="index-content">
+                <div class="tabs-container">
+                    <div class="tab-button active" data-tab="administrar">Administrar Desplegables</div>
+                    <div class="tab-button" data-tab="eliminar">Eliminar Usuario</div>
+                </div>
+    
+                <!-- Contenido de las pestañas -->
+                <div id="administrar" class="tab-content active">
+                    <div class="form-container">
+                        <h1>Administrar Desplegables</h1>
                 
-                <form id="formulario-inspeccion">
-                    <!-- Datos generales -->
-                    <!-- Contenedor de la selección de aeropuerto, control de seguridad e imágenes -->
-                    <div class="form-header">
-                        <div class="form-fields">
-                            <div class="form-group">
-                                <label for="aeropuerto">Aeropuerto:</label>
-                                <select id="aeropuerto" name="aeropuerto" required>
+                        <form id="formulario">
+                            <div class="select-container">
+                                <i class="fa-solid fa-plane"></i>
+                                <select id="aeropuerto" name="aeropuerto" title="seleccione un aeropuerto" required>
                                     <option value="" disabled selected>Seleccione un Aeropuerto</option>
                                     <option value="ABC - Albacete">ABC - Albacete</option>
                                     <option value="ACE - Lanzarote">ACE - Lanzarote</option>
@@ -134,71 +140,140 @@
                                     <option value="XRY - Jerez de la Frontera">XRY - Jerez de la Frontera</option>
                                 </select> 
                             </div>
+                            <!-- SECCIÓN CONTROL DE SEGURIDAD -->
+                            <fieldset class="security-section">
+                                <legend><i class="fa-solid fa-shield"></i> Control de Seguridad</legend>
+                
+                                <div class="form-group">
+                                    <label for="tipo-control">Tipo de Control:</label>
+                                    <input type="text" id="tipo-control" placeholder="Ingrese tipo de control" required>
+                                </div>
+                
+                                <div class="form-group">
+                                    <label for="nombre-control">Nombre del Control:</label>
+                                    <input type="text" id="nombre-control" placeholder="Ingrese nombre del control" required>
+                                </div>
+                            </fieldset>
+                
+                            <!-- SECCIÓN PATRULLAS -->
+                            <fieldset class="patrol-section">
+                                <legend><i class="fa-solid fa-users"></i> Patrullas</legend>
+                
+                                <div class="form-group">
+                                    <label for="categoria-patrulla"> Categoría de Patrullas:</label>
+                                    <input type="text" id="categoria-patrulla" placeholder="Ingrese categoría de patrulla" required>
+                                </div>
+                
+                                <div class="form-group">
+                                    <label for="subcategoria-patrulla"> Subcategoría de Patrullas:</label>
+                                    <input type="text" id="subcategoria-patrulla" placeholder="Ingrese subcategoría de patrulla" required>
+                                </div>
+                            </fieldset>
+                
+                            <button type="submit" class="btn-enviar"><i class="fa-solid fa-save"></i> Guardar</button>
+                        </form>
+                
+                        <!-- TABLA DE REGISTROS -->
+                        <div class="table-container">
+                            <h3>Registros Guardados</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Aeropuerto</th>
+                                        <th>Tipo de Control</th>
+                                        <th>Nombre del Control</th>
+                                        <th>Categoría Patrulla</th>
+                                        <th>Subcategoría Patrulla</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-list">
+                                    <!-- Aquí se insertarán los registros dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                <label for="control-seguridad">Control de seguridad:</label>
-                                <input type="text" id="control-seguridad" name="control-seguridad" placeholder="Ingrese el control de seguridad" required>
-                            </div>
+                </div>
+                
+                <!-- FORMULARIO DE ELIMINAR USUARIOS -->
+                <div id="eliminar" class="tab-content">
+                    <div class="form-container">
+                        <h1>Eliminar Usuario</h1>
+
+                        <form id="formulario">
+                            <div class="select-container">
+                                <i class="fa-solid fa-plane"></i>
+                                <select id="aeropuerto" name="aeropuerto" title="seleccione un aeropuerto" required>
+                                    <option value="" disabled selected>Seleccione un Aeropuerto</option>
+                                    <option value="ABC - Albacete">ABC - Albacete</option>
+                                    <option value="ACE - Lanzarote">ACE - Lanzarote</option>
+                                    <option value="AEI - Algeciras">AEI - Algeciras</option>
+                                    <option value="AGP - Málaga-Costa del Sol">AGP - Málaga-Costa del Sol</option>
+                                    <option value="ALC - Alicante-Elche">ALC - Alicante-Elche</option>
+                                    <option value="BCN - Barcelona-El Prat">BCN - Barcelona-El Prat</option>
+                                    <option value="BIO - Bilbao">BIO - Bilbao</option>
+                                    <option value="BJZ - Badajoz">BJZ - Badajoz</option>
+                                    <option value="EAS - San Sebastián">EAS - San Sebastián</option>
+                                    <option value="FUE - Fuerteventura">FUE - Fuerteventura</option>
+                                    <option value="GMZ - La Gomera">GMZ - La Gomera</option>
+                                    <option value="GRO - Girona-Costa Brava">GRO - Girona-Costa Brava</option>
+                                    <option value="HSK - Huesca-Pirineos">HSK - Huesca-Pirineos</option>
+                                    <option value="IBZ - Ibiza">IBZ - Ibiza</option>
+                                    <option value="LCG - A Coruña">LCG - A Coruña</option>
+                                    <option value="LEI - Almería">LEI - Almería</option>
+                                    <option value="LEJ - León">LEJ - León</option>
+                                    <option value="LPA - Gran Canaria">LPA - Gran Canaria</option>
+                                    <option value="MAD - Madrid-Barajas">MAD - Madrid-Barajas</option>
+                                    <option value="MAH - Menorca">MAH - Menorca</option>
+                                    <option value="MLN - Melilla">MLN - Melilla</option>
+                                    <option value="ODB - Córdoba">ODB - Córdoba</option>
+                                    <option value="OVD - Asturias">OVD - Asturias</option>
+                                    <option value="PMI - Palma de Mallorca">PMI - Palma de Mallorca</option>
+                                    <option value="PNA - Pamplona">PNA - Pamplona</option>
+                                    <option value="REU - Reus">REU - Reus</option>
+                                    <option value="RGS - Burgos">RGS - Burgos</option>
+                                    <option value="RJL - Logroño-Agoncillo">RJL - Logroño-Agoncillo</option>
+                                    <option value="SCQ - Santiago de Compostela">SCQ - Santiago de Compostela</option>
+                                    <option value="SDR - Santander">SDR - Santander</option>
+                                    <option value="SLM - Salamanca">SLM - Salamanca</option>
+                                    <option value="SPC - La Palma">SPC - La Palma</option>
+                                    <option value="SVQ - Sevilla">SVQ - Sevilla</option>
+                                    <option value="TFN - Tenerife Norte">TFN - Tenerife Norte</option>
+                                    <option value="TFS - Tenerife Sur">TFS - Tenerife Sur</option>
+                                    <option value="VDE - El Hierro">VDE - El Hierro</option>
+                                    <option value="VGO - Vigo">VGO - Vigo</option>
+                                    <option value="VIT - Vitoria">VIT - Vitoria</option>
+                                    <option value="VLC - Valencia">VLC - Valencia</option>
+                                    <option value="VLL - Valladolid">VLL - Valladolid</option>
+                                    <option value="XRY - Jerez de la Frontera">XRY - Jerez de la Frontera</option>
+                                </select> 
+                                    <input type="text" id="buscar-tip" placeholder="Buscar por TIP"> 
+                            </div> 
+                        </form>
+                        <!-- TABLA SIMPLIFICADA SIN FILTROS -->
+                        <div class="table-container">
+                            <h4>Usuarios en el Aeropuerto Seleccionado</h4>
+                            <table id="tabla-usuarios">
+                                <thead>
+                                    <tr>
+                                        <th>TIP</th>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Número Acreditación</th>
+                                        <th>Color Acreditación</th>
+                                        <th>Rol</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lista-usuarios">
+                                    <!-- Los usuarios se cargarán dinámicamente -->
+                                </tbody>
+                            </table>
                         </div>
 
-                        <!-- Contenedor de las imágenes -->
-                        <div class="form-images">
-                            <img src="images/suministros1.png" alt="Numero de cajas" class="img-small img-cajas">
-                            <img src="images/suministros2.png" alt="Zonas donde escoger las cajas" class="img-small img-zonas">
-                        </div>  
                     </div>
-                    <!-- se va tener que agregar la pagina web lo que programaremos del notepad-->
-                    <!-- Tabla de inspección de suministros -->
-                    <div class="form-group">
-                        <table id="tabla-inspeccion">
-                            <thead>
-                                <tr>
-                                    <th rowspan="2">Día</th>
-                                    <th rowspan="2">Hora</th>
-                                    <th rowspan="2">Matrícula</th>
-                                    <th rowspan="2">Empresa</th>
-                                    <th rowspan="2">Personas que realizan la entrega (N° TIP)</th>
-                                    <th rowspan="2">Tipo de Suministro</th>
-                            
-                                    <!-- Inspección con subdivisión -->
-                                    <th colspan="2" class="inspeccion-th">Inspección</th>
-                                    
-                                    <th rowspan="2">Combin. Aleatoria</th>
-                                    <th rowspan="2">Insp. 100% o Acomp.</th>
-                                </tr>
-                                <tr>
-                                    <!-- Encabezado "Sí" y "No" con separación -->
-                                    <th class="sub-th">Sí</th>
-                                    <th class="sub-th">No</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="date" name="dia[]" required title="Seleccione la fecha"></td>
-                                    <td><input type="time" name="hora[]" required title="Seleccione la hora"></td>
-                                    <td><input type="text" name="matricula[]" required title="Ingresa la matricula"></td>
-                                    <td><input type="text" name="empresa[]" required title="Ingresa nombre de la empresa"></td>
-                                    <td><input type="text" name="entrega[]" required title="Rellena el campo"></td>
-                                    <td><input type="text" name="tipo-suministro[]" required title="Ingresa el tipo de suministro"></td>
-                            
-                                    <!-- Radios alineados y separados -->
-                                    <td class="inspeccion-radio"><input type="radio" name="inspeccion-si[]" title="Seleccionar SI"></td>
-                                    <td class="inspeccion-radio"><input type="radio" name="inspeccion-no[]"title="Seleccionar NO"></td>
-                            
-                                    <td class="combin-aleatoria"><input type="text" name="combin-aleatoria[]" placeholder="Ej: A, B, C, D"></td>
-                                    <td class="insp-100-acomp"><input type="text" name="insp-100-acomp[]" title="Rellene el campo"></td>
-                                    <td><button type="button" class="btn-eliminar" onclick="eliminarFila(this)" title="Eliminar fila"><i class="fa fa-trash"></i></button></td>
-                                </tr>
-                            </tbody>
-                            
-                        </table>
-                        <button type="button" class="btn-agregar" onclick="agregarFila()">
-                            <i class="fas fa-plus-circle"></i> Agregar Fila
-                        </button>
-                    </div>
-        
-                    <button type="submit" class="btn-enviar"> <i class="fas fa-paper-plane"></i> Enviar Inspección</button>
-                </form>
+                </div>
+
             </div>
         </div>
     </main>
@@ -261,9 +336,11 @@
     </footer>
 
      <!-- llamadas a scripts -->
-      <script src="js/inspeccion-suministros.js"></script>
     <script src="js/config-encabezado-pie.js"></script>
     <script src="js/config-fecha-hora.js"></script>
-  
+    <script src="js/parte-servicio-descripcion.js"></script>
+    <script src="js/administrar.js"></script>
+    <script src="js/eliminar-usuario.js"></script>
+
 </body>
 </html>

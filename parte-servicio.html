@@ -51,22 +51,32 @@
         <div class="index-sidebar">
             <div class="index-header">
                 <h1 class="index-header-title">
-                    <img src="images/airplane_animation.gif" alt="Logo AENA" class="header-logo"></img> FORMULARIOS 
+                    <img src="images/airplane_animation.gif" alt="Logo AENA" class="header-logo"> FORMULARIOS 
                     <span class="index-header-subtitle">DE PARTES</span>
                 </h1>
-            </div>                      
-                      
-            <div>
-                <a href="#">Inicio</a>
+            </div>   
+            <div class="menu">
+                <a href="administrar.html">Administrar</a>
                 <a href="parte-servicio.html">Parte de Servicios</a>
-                <a href="parte-patrullas.html">Parte de Patrullas</a>
+
+                <!-- Menú desplegable -->
+                <div class="submenu">
+                    <a href="parte-patrullas.html" class="submenu-toggle">Parte de Patrullas ▾</a>
+                    <div class="submenu-content">
+                        <a href="perimetro.html">Perímetro</a>
+                        <a href="otras-zonas.html">Otras Zonas</a>
+                        <a href="acreditaciones.html">Acreditaciones</a>
+                        <a href="control-indigentes.html">Control de Indigentes</a>
+                        <a href="alarmas-puertas.html">Alarmas y Puertas</a>
+                    </div>
+                </div>
+
                 <a href="parte-equipos.html">Parte de Equipos</a>
                 <a href="inspeccion-vehiculos.html">Inspección de Vehículos</a>
                 <a href="inspeccion-suministros.html">Inspección de Suministros</a>
                 <a href="#">Contáctanos</a>
                 <a href="index.html">Salir</a>
             </div>
-        <!-- formulario -->
         </div>
         <div class="index-content">
             <div class="form-container">
@@ -139,10 +149,17 @@
                     </div>
                     <!-- Campo Nombre del Vigilante -->
                     <div class="form-group">
-                        <label for="nombre">Nombre Vigilante:</label>
+                        <label for="nombre">Nombre del Vigilante:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Indica tu nombre" required>
                     </div>
-        
+                    <div class="form-group">
+                        <label for="nombre">Apellido 1:</label>
+                        <input type="text" id="apellido1" name="apellido1" placeholder="Indica tus apellido 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Apellido 2:</label>
+                        <input type="text" id="apellido2" name="apellido2" placeholder="Indica tus apellido 2" required>
+                    </div>
                     <!-- Campo TIP -->
                     <div class="form-group">
                         <label for="tip">TIP (Número de Placa):</label>
@@ -158,17 +175,25 @@
 
                             <input type="checkbox" id="linterna" name="material" value="linterna">
                             <label for="linterna" class="label-checkbox">Linterna</label>
-        
+
                             <input type="checkbox" id="llaves" name="material" value="llaves">
                             <label for="llaves" class="label-checkbox">Llaves</label>
-        
+
                             <input type="checkbox" id="walkies" name="material" value="walkies">
                             <label for="walkies" class="label-checkbox">Walkies</label>
-        
+
                             <input type="checkbox" id="vehiculo" name="material" value="vehiculo">
                             <label for="vehiculo" class="label-checkbox">Vehículo</label>
+
+                            <!-- Checkbox "Otros" -->
+                            <input type="checkbox" id="otros" name="material" value="otros" onclick="toggleOtrosInput()">
+                            <label for="otros" class="label-checkbox">Otros</label>
+
+                            <!-- Input para escribir el material personalizado (oculto por defecto) -->
+                            <input type="text" id="otros-material" name="otros-material" placeholder="Especifique otro material" style="display: none; margin-left: 10px;">
                         </div>
                     </div>
+
         
                     <!-- Leído Normativa -->
                     <div class="form-group">
@@ -206,10 +231,18 @@
                                     </div>
                                 </div>
                                 <textarea id="descripcion-servicio" name="descripcion-servicio" placeholder="Describe el servicio realizado" required></textarea>
+                                <textarea id="descripcion-accion" name="descripcion-accion" placeholder="Describe la accion tomada (opcional)"></textarea>
+                                <!-- Nueva verificación dentro de un div similar a los textarea -->
+                                <div class="verificacion-container">
+                                    <label for="verificacion">Verificación</label>
+                                    <select id="verificacion" name="verificacion">
+                                        <option value="si">Ok</option>
+                                        <option value="no">No OK</option>
+                                    </select>
+                                </div>
                                 <button type="button" class="btn-eliminar" onclick="eliminarDescripcion(this)" title="Eliminar">
                                     <i class="fa fa-trash"></i>
-                                </button>
-                                
+                                </button>  
                             </div>
                         </div>
                         <button type="button" class="btn-agregar" onclick="agregarDescripcion()">
