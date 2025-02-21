@@ -12,3 +12,11 @@
 
 }
 
+#otros-material {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 200px; /* Ajusta el tamaño */
+}
+

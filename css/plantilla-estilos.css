@@ -468,6 +468,7 @@
     margin-top: 85px;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+    z-index: 10000; 
    
 }
 
@@ -604,3 +605,82 @@
     position: relative;
     z-index: 2;
 }
+
+
+/*ESTILOS SUB PESTAÑAS DE BARRA LATERAL*/
+
+
+/* Submenú */
+.submenu {
+    position: relative;
+}
+
+/* Contenedor del submenú */
+.submenu-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    left: 100%; /* Alineado a la derecha */
+    top: 0;
+    margin-left: -10px; /* Ajuste fino */
+    background: #1d2528;/* Fondo oscuro */
+    min-width: 200px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding: 5px 0;
+}
+
+/* Flecha indicadora en la caja negra */
+.submenu-content::before {
+    content: "";
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical de la flecha */
+    left: -12px; /* La hace salir desde la izquierda del submenú */
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #1d2528; /* Color igual al fondo del submenú */
+}
+
+
+/* Elementos dentro del submenú */
+.submenu-content a {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Hover: solo resalta el texto y agrega la línea verde  */
+.submenu-content a:hover {
+    color: #a0d911 !important; /* Verde brillante en hover */
+    background: none !important; /* Evita que el fondo cambie */
+    box-shadow: none !important; /* Elimina cualquier resplandor */
+    text-shadow: none !important; /* Evita cualquier brillo */
+}
+
+
+/* Muestra el submenú al pasar el mouse */
+.submenu:hover .submenu-content {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Mantiene el hover activo en la pestaña principal mientras el submenú está abierto */
+.submenu:hover > a {
+    background: linear-gradient(90deg, rgba(160, 217, 17, 0.9), rgba(140, 190, 15, 0.9), rgba(120, 160, 10, 0.9)) !important;
+    color: white !important;
+    border-radius: 8px;
+    padding-left: 35px;
+    width: 100%;
+}
+
+
+
+

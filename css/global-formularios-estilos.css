@@ -17,17 +17,15 @@
 }
 /* Estilo general */
 .form-container {
-    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
-    background: #e9ecef; /* Fondo color de aena/
-    max-width: 600px;
-    width: 90%; /* Responsivo */
-    margin: 90px auto; /* Centrado automático */
+    font-family: 'Roboto', sans-serif; 
+    background: #e9ecef; 
+    margin: 90px auto; 
     padding: 20px;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     position: relative; /* Para z-index */
-    transition: transform 0.3s ease; /* Suaviza el movimiento */
-    margin-bottom: auto;
+    transition: transform 0.3s ease; 
+    margin-bottom: 15px;
 }
 
 .form-container h1 {
@@ -53,6 +51,10 @@
     color: #333;
 }
 
+.table-container {
+    margin-top: 20px;
+}
+
 /* Estilo general para inputs, select y textarea */
 .form-container input[type="text"],
 .form-container input[type="datetime-local"],
@@ -67,20 +69,20 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    margin-bottom: 5px; /* Espaciado */
-    border: none; /* Elimina el borde predeterminado */
-    border-bottom: 2px solid #90ce00; /* Línea verde siempre visible */
-    outline: none; /* Quita el borde de selección */  
-    transition: all 0.3s ease-in-out; /* Suaviza la animación */ 
+    margin-bottom: 5px; 
+    border: none; 
+    border-bottom: 2px solid #90ce00; 
+    outline: none; 
+    transition: all 0.3s ease-in-out; 
 }
 
 /* Animacion al hacer click en los cuadrod de texto */
 .form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
-    border-bottom: 3px solid #90ce00; /* Hace la línea más gruesa */
-    box-shadow: 0px 0px 10px rgba(140, 198, 63, 0.8); /* Resplandor verde */
-    transform: scale(1.01); /* Hace el campo un poco más grande */
+    border-bottom: 3px solid #90ce00; 
+    box-shadow: 0px 0px 10px rgba(140, 198, 63, 0.8); 
+    transform: scale(1.01); 
 }
 
 /* Botones generales */
@@ -167,9 +169,10 @@
 }
 
 /* Estilo de las tarjetas (descripciones del servicio) */
+
 .form-container .descripcion-item {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 2fr 1fr auto auto; /* Ajustamos la distribución dependiendo la cantidad de columnas */
     gap: 10px;
     align-items: center;
     padding: 10px;
@@ -180,6 +183,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+
 .form-container .descripcion-item textarea {
     height: 85px;
     resize: none;
@@ -187,6 +191,7 @@
     font-size: 14px;
     border-radius: 4px;
     box-sizing: border-box;
+    width: 100%; /* Asegura que el ancho se reparta */
 }
 
 /* Estilo de la sección de horario */
@@ -216,6 +221,20 @@
     width: 100px;
 }
 
+.verificacion-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.verificacion-container select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
 /* Observaciones opcionales */
 .form-container textarea {
     resize: none;
@@ -242,31 +261,31 @@
 
 /* Eliminar negrita de los encabezados desde "Día" en adelante */
 th {
-    font-weight: normal; /* Hace que el texto no sea en negrita */
-    padding: 10px 5px; /* Ajusta el espaciado interno */
-    text-align: center; /* Centrar el texto en los encabezados */
-    vertical-align: middle; /* Asegura que el texto esté alineado */
-    font-size: 14px; /* Tamaño de fuente más estético */
+    font-weight: normal; 
+    padding: 10px 5px; 
+    text-align: center;
+    vertical-align: middle; 
+    font-size: 14px;
 }
 
 /* Ajustar listas en encabezados */
 th ul {
-    list-style: none; /* Elimina los puntos de las listas */
-    padding-left: 0; /* Elimina el margen a la izquierda */
-    margin: 3px 0; /* Espaciado adecuado */
-    text-align: left; /* Alinea los textos a la izquierda */
-    font-size: 14px; /* Tamaño de fuente más estético */
+    list-style: none; 
+    padding-left: 0;
+    margin: 3px 0; 
+    text-align: left; 
+    font-size: 14px; 
 }
 
 /* Ajuste de listas ordenadas (enumeradas) */
 th ol {
-    padding-left: 15px; /* Da margen para los números */
-    margin: 5px 0; /* Ajusta el espacio */
-    list-style-position: inside; /* Hace que los números queden alineados con el texto */
-    padding-left: 0; /* Elimina espacio extra a la izquierda */
-    margin: 0; /* Elimina espacios exteriores */
-    text-align: left; /* Asegura alineación con el resto del contenido */
-    font-size: 14px; /* Tamaño de fuente más estético */
+    padding-left: 15px; 
+    margin: 5px 0;
+    list-style-position: inside; 
+    padding-left: 0; 
+    margin: 0; 
+    text-align: left; 
+    font-size: 14px; 
 }
 
 /* Ajustar tamaño de los checkbox para que no se vean muy grandes */
@@ -284,12 +303,12 @@ td, th {
 
 /* Ajustar los elementos dentro de la lista */
 th ol li {
-    margin: 2px 0; /* Espaciado entre elementos */
-    line-height: 1.4; /* Espaciado entre líneas */
+    margin: 2px 0; 
+    line-height: 1.4; 
 }
 
 table {
-    border-collapse: collapse; /* Une los bordes para que no haya doble línea */
+    border-collapse: collapse; 
 }
 
 /* Centrar los checkboxes en la tabla */
@@ -303,16 +322,16 @@ td input[type="checkbox"] {
 .form-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinear verticalmente */
-    gap: 20px; /* Espacio entre campos e imágenes */
-    margin-bottom: 10px; /* Espacio antes de la tabla */
+    align-items: center; 
+    gap: 20px; 
+    margin-bottom: 10px; 
 }
 
 /* Contenedor de los campos (AEROPUERTO Y CONTROL DE SEG. */
 .form-fields {
-    flex: 1; /* Hace que los inputs ocupen el espacio disponible */
+    flex: 1; 
     display: flex;
-    flex-direction: column; /* Organiza los elementos en columna */
+    flex-direction: column; 
     gap: 10px;
 }
 
@@ -351,7 +370,7 @@ th.combin-aleatoria,
 td.combin-aleatoria,
 th.insp-100-acomp, 
 td.insp-100-acomp {
-    width: 60px; /* Ajusta este valor según necesites */
+    width: 60px; 
     max-width: 150px;
     text-align: center;
 }
@@ -359,6 +378,7 @@ td.insp-100-acomp {
 /* Ajustar el tamaño del input dentro de las celdas */
 td.combin-aleatoria input, 
 td.insp-100-acomp input {
-    width: 90%; /* Para que no desborde la celda */
-    font-size: 14px; /* Ajustar tamaño de letra si es necesario */
+    width: 90%; 
+    font-size: 14px; 
 }
+
