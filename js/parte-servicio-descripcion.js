@@ -7,13 +7,22 @@ function agregarDescripcion() {
         <div class="horario">
             <div class="horario-item">
                 <label for="hora-inicio">Hora</label>
-                <input type="time" name="hora-inicio" required>
+                <input type="time" id="hora-inicio" name="hora-inicio" required>
             </div>
         </div>
-        <textarea name="descripcion-servicio" placeholder="Describe el servicio realizado" required></textarea>
-        <button type="button" class="btn-eliminar" onclick="eliminarDescripcion(this)">
+        <textarea id="descripcion-servicio" name="descripcion-servicio" placeholder="Describe el servicio realizado" required></textarea>
+        <textarea id="descripcion-accion" name="descripcion-accion" placeholder="Describe la accion tomada (opcional)"></textarea>
+        <!-- Nueva verificación dentro de un div similar a los textarea -->
+        <div class="verificacion-container">
+            <label for="verificacion">Verificación</label>
+            <select id="verificacion" name="verificacion">
+                <option value="si">Ok</option>
+                <option value="no">No OK</option>
+            </select>
+        </div>
+        <button type="button" class="btn-eliminar" onclick="eliminarDescripcion(this)" title="Eliminar">
             <i class="fa fa-trash"></i>
-        </button>
+        </button>  
     `;
     container.appendChild(nuevaDescripcion);
 }
@@ -28,5 +37,40 @@ function eliminarDescripcion(button) {
         item.remove();
     } else {
         alert("Debe haber al menos una descripción del servicio.");
+    }
+}
+
+// Función para permitir la deselección de botones de radio al hacer clic en ellos nuevamente
+function habilitarDeseleccionRadios() {
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener("click", function () {
+            if (this.checked && this.dataset.checked === "true") {
+                this.checked = false;
+                this.dataset.checked = "false";
+            } else {
+                this.dataset.checked = "true";
+            }
+        });
+    });
+}
+
+
+// Ejecutar la función cuando el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", function() {
+    habilitarDeseleccionRadios();
+    
+});
+
+function toggleOtrosInput() {
+    let otrosCheckbox = document.getElementById('otros');
+    let otrosInput = document.getElementById('otros-material');
+
+    // Si el checkbox está marcado, mostramos el input
+    if (otrosCheckbox.checked) {
+        otrosInput.style.display = 'inline-block';
+        otrosInput.focus(); // Poner el cursor en el input
+    } else {
+        otrosInput.style.display = 'none';
+        otrosInput.value = ''; // Limpiar el campo si se deselecciona
     }
 }
