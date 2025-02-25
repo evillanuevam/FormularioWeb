@@ -64,7 +64,7 @@
 .form-container select,
 .form-container textarea {
     padding: 8px;
-    border-radius: 4px;
+    /*border-radius: 4px;*//*para no distorsionar cuando se escribe*/
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;

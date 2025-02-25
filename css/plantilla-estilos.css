@@ -468,7 +468,7 @@
     margin-top: 85px;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 10000; 
+    z-index: 1; /*para que este debajo de del pie de pagina*/
    
 }
 
@@ -559,8 +559,6 @@
     font-size: 1rem;
 }
 
-
-
 .index-sidebar .footer {
     color: #9a9898;
     font-size: 0.9rem;
@@ -575,19 +573,23 @@
 }
 
 .index-content {
+    flex-grow: 1; /* Permite que el contenido se expanda automáticamente */
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: flex-start; /* Mantiene la parte superior alineada */
     padding: 50px;
     min-height: 100vh;
     background-size: contain;
-    transition: margin-left 0.3s ease; /* Transición para que se desplace */
 }
 
 /* Cuando la barra lateral está activa- moverlo a la derecha */
 .index-sidebar.active ~ .index-content {
     margin-left: 250px; /* Desplaza el contenido cuando la barra está activa */
+    width: calc(100% - 350px); /* Ajusta el tamaño */
 }
+
+
 
 .index-content h1 {
     color: #fff;
