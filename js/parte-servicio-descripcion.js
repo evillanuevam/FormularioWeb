@@ -40,20 +40,6 @@ function eliminarDescripcion(button) {
     }
 }
 
-// Función para permitir la deselección de botones de radio al hacer clic en ellos nuevamente
-function habilitarDeseleccionRadios() {
-    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-        radio.addEventListener("click", function () {
-            if (this.checked && this.dataset.checked === "true") {
-                this.checked = false;
-                this.dataset.checked = "false";
-            } else {
-                this.dataset.checked = "true";
-            }
-        });
-    });
-}
-
 
 // Ejecutar la función cuando el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {

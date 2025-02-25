@@ -64,11 +64,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector(".index-sidebar");
     const formContainer = document.querySelector(".form-container");
 
-    if (toggleSidebarButton) {
+    if (toggleSidebarButton && sidebar) {
         toggleSidebarButton.addEventListener("click", function () {
+            if (this.querySelector("i")) {  // ✅ Verifica que el <i> existe antes de cambiar su clase
+                this.querySelector("i").classList.toggle("active");
+            }
             sidebar.classList.toggle("active");
-            this.querySelector("i").classList.toggle("active");
-            formContainer.classList.toggle("shifted"); // Añade una clase al contenedor principal
+    
+            if (formContainer) {  // ✅ Verifica que formContainer existe antes de usarlo
+                formContainer.classList.toggle("shifted");
+            }
         });
     }
 
