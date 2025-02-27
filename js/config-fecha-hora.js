@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Configuración de fecha y hora por defecto
-    const fechaHoraInput = document.getElementById("fecha");
+    setTimeout(() => { // Aseguramos que se ejecute después de la carga del DOM
+        const fechaRegistroInput = document.getElementById("fecha");
 
-    if (fechaHoraInput) { // Verifica si el campo existe antes de asignarle valores
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // Ajustar la hora a la zona horaria local
+        if (fechaRegistroInput) {
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // Ajusta la zona horaria
 
-        if (fechaHoraInput.type === "datetime-local") {
-            fechaHoraInput.value = now.toISOString().slice(0, 16); // Formato para datetime-local
-        } else if (fechaHoraInput.type === "date") {
-            fechaHoraInput.value = now.toISOString().slice(0, 10); // Formato para date
+            fechaRegistroInput.value = now.toISOString().slice(0, 16); // Formato correcto
+            console.log("Fecha registrada:", fechaRegistroInput.value); // Verificar en consola
+        } else {
+            console.error("No se encontró el campo 'fecha'");
         }
-    }
+    }, 500); // Esperamos 500ms para asegurar que el DOM está listo
 
     // Función para permitir la deselección de botones de radio al hacer clic en ellos nuevamente
     function habilitarDesmarcarRadios() {
@@ -27,6 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Llamamos a la función para manejar todos los radios en la página
+    //Llamamos a la función para manejar todos los radios en la página
     habilitarDesmarcarRadios();
 });
