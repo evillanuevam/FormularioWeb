@@ -15,6 +15,7 @@
     position: relative;
     /*z-index: 9999;/* Un valor alto para que esté delante de todo */
 }
+
 /* Estilo general */
 .form-container {
     font-family: 'Roboto', sans-serif; 
@@ -168,94 +169,6 @@
     transform: translateY(1px);
 }
 
-/* Estilo de las tarjetas (descripciones del servicio) */
-
-.form-container .descripcion-item {
-    display: grid;
-    grid-template-columns: auto 2fr 1fr auto auto; /* Ajustamos la distribución dependiendo la cantidad de columnas */
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #dedede;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-
-.form-container .descripcion-item textarea {
-    height: 85px;
-    resize: none;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 100%; /* Asegura que el ancho se reparta */
-}
-
-/* Estilo de la sección de horario */
-.form-container .horario {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.form-container .horario-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.form-container .horario-item label {
-    font-size: 14px;
-    color: #666;
-    min-width:40px;
-    margin: 0;
-}
-
-.form-container .horario-item input {
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    width: 100px;
-}
-
-.verificacion-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.verificacion-container select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-
-/* Observaciones opcionales */
-.form-container textarea {
-    resize: none;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Estilo de los textos secundarios (checkbox y radio) */
-.form-container input[type="checkbox"] + label,
-.form-container input[type="radio"] + label {
-    font-weight: normal;
-    color: #000000a8;
-    margin-left: 5px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* Aseguramos que el resto de los label permanezcan en bold */
-.form-container label:not(.label-checkbox):not(.label-radio) {
-    font-weight: bold;
-    color: #000000b8;
-}
 
 /**************** CSS ADICIONAL PARA EL FORMUALARIO, para las tablas, listas y demas ******/
 
@@ -381,4 +294,5 @@ td.insp-100-acomp input {
     width: 90%; 
     font-size: 14px; 
 }
+
 
