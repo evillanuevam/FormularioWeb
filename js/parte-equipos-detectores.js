@@ -16,6 +16,7 @@ function agregarFila() {
         <td><input type="text" name="marca[]" required title="Ingrese la la marca" aria-label="marca"></td>
         <td>
         <select name="control[]" required title="Seleccion uno" aria-label="control de seguridad">
+            <option value="" disabled selected>Seleccione...</option>
             <option value="PAX">PAX</option>
             <option value="Personal">Personal</option>
             <option value="Mixto">Mixto</option>

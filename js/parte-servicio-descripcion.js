@@ -22,6 +22,7 @@ function agregarDescripcion() {
             <div class="verificacion-item">
                 <label for="verificacion">Verificación</label>
                 <select name="verificacion">
+                    <option value="" disabled selected>Seleccione...</option>
                     <option value="si">Ok</option>
                     <option value="no">No OK</option>
                 </select>
@@ -120,3 +121,4 @@ function toggleOtrosInput() {
         otrosInput.value = ''; // Limpiar el campo si se deselecciona
     }
 }
+

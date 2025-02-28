@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Opciones de estado para el desplegable
     const estados = [
-        "Correcto", "Deteriorado", "Agujereado", "No anclado",
+        "Seleccione...","Correcto", "Deteriorado", "Agujereado", "No anclado",
         "Objetos junto al vallado (ZT/ZC)", "Vegetación abundante (ZT/ZC)",
         "Anomalías en las puertas", "Mal estado de basamento",
         "Cámara de seguridad", "Acumulación de plásticos/papel/basura",
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Opción por defecto "Seleccione"
             const defaultOption = document.createElement("option");
             defaultOption.value = "";
-            defaultOption.textContent = "Seleccione";
+            defaultOption.textContent = "Seleccione...";
             defaultOption.disabled = true;
             defaultOption.selected = true;
             selectCerradura.appendChild(defaultOption);
