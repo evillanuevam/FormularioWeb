@@ -84,6 +84,7 @@
                     <div class="form-group">
                         <label for="tipo-test">Tipo de Test:</label>
                         <select id="tipo-test" name="tipo-test" onchange="cambiarTitulo()" required>
+                            <option value="" disabled selected>Seleccione un tipo de test</option>
                             <option value="ETD">Equipos detectores de trazas explosivos (ETD)</option>
                             <option value="LEDS">Equipos detectores de líquidos (LEDS)</option>
                         </select>
@@ -167,6 +168,7 @@
                                     <td><input type="text" name="marca[]" required title="Ingrese la la marca" aria-label="marca"></td>
                                     <td>
                                         <select name="control[]" required title="Seleccion uno" aria-label="control de seguridad">
+                                            <option value="" disabled selected>Seleccione...</option>
                                             <option value="PAX">PAX</option>
                                             <option value="Personal">Personal</option>
                                             <option value="Mixto">Mixto</option>
